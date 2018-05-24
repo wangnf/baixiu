@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en" data-basewidth="760">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="renderer" content="webkit">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="stylesheet" href="css/main.css">
+    <script>
+        (function (win, doc) {
+
+            var timer = null,
+                html = doc.documentElement,
+                baseWidth = html.dataset.basewidth * 1 || 640,
+                metaEl = document.querySelector('meta[name="viewport"]'),
+                event = 'onorientationchange' in win ? 'onorientationchange' : 'resize';
+
+            if (!metaEl) {
+                metaEl = document.createElement('meta');
+                metaEl.setAttribute('name', 'viewport');
+                metaEl.setAttribute('content', 'initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=0');
+                html.firstElementChild.appendChild(metaEl);
+            }
+
+            function layoutCalc() {
+
+                var width = html.getBoundingClientRect().width,
+                    ratio = width / baseWidth * 100,
+                    devicePixelRatio = window.devicePixelRatio,
+                    rem = ratio < 100 ? ratio < 50 ? 50 : ratio : 100;
+
+                if (!/\.\d+/.test(devicePixelRatio.toString())) {
+                    html.dataset.dpr = devicePixelRatio;
+                }
+
+                html.style.fontSize = rem + 'px';
+
+            }
+
+            win.addEventListener(event, function () {
+                clearTimeout(timer);
+                timer = setTimeout(layoutCalc, 300);
+            }, false);
+
+            win.addEventListener('pageShow', function (e) {
+                if (e.persisted) {
+                    clearTimeout(timer);
+                    timer = setTimeout(layoutCalc, 300);
+                }
+            }, false);
+
+            layoutCalc();
+
+        }(window, document));
+    </script>
+</head>
+<body>
+
+<div class="app">
+    <header>
+        <div class="banner">
+            <img src="images/banner.png" alt="">
+        </div>
+        <div class="people">
+            <img src="images/people.png" alt="">
+        </div>
+        <div class="book">
+            <img src="images/book.png" alt="">
+        </div>
+    </header>
+    <section>
+        <div class="wrapper">
+            <div class="title">
+                <div class="h_bg"></div>
+                <div class="h3">参加校外培训情况统计调查目的和意义</div>
+                <div class="h_bg"></div>
+            </div>
+            <div class="inner">
+                <p><i class="number">1</i>对全省中小学生参加校外培训种类、频次、时段、时长情
+                    况进行全面调查了解；</p>
+                <p><i class="number">2</i>对全省中小学生参加校外培训经济负担情况进行全面调查
+                    了解。</p>
+                <p class="last"><em>填报须知</em>填写信息需准确具体，便于相关部门进行核查。</p>
+            </div>
+        </div>
+        <div class="wrapper">
+            <div class="title">
+                <div class="h_bg"></div>
+                <div class="h3">基本信息填写</div>
+                <div class="h_bg"></div>
+            </div>
+            <div class="inner write">
+                <p><span>学校名称</span><span>郑州市第一实验小学</span></p>
+                <p>
+                    <span>所在年级</span>
+                    <select name="" id="">
+                        <option value="1111">1111</option>
+                    </select>
+                </p>
+                <p><span>所在班级</span><input type="text"></p>
+                <p><span>学生姓名</span><input type="text"></p>
+                <p><span>证件号码</span><input type="text"></p>
+                <p><span>联系方式</span><input type="text"></p>
+                <p>
+                    <a href="#">从未参加过校外培训班</a>
+                    <input type="button" value="从未参加过校外培训班">
+                </p>
+            </div>
+        </div>
+        <div class="wrapper">
+            <div class="title">
+                <div class="h_bg"></div>
+                <div class="h3">请选择和填写培训信息</div>
+                <div class="h_bg"></div>
+            </div>
+            <div class="inner">
+                <div>
+                    <p class="hint"><em>请选择参加过的校外培训班</em></p>
+                    <ul>
+                        <li>
+                            <span>学科类</span>
+                            <div>
+                                <label for="KMDM_29"> <input type="radio" id="KMDM_29" name="KMDM" value="1601"/>
+                                    托管服务</label>
+                                <label><input type="checkbox">数学</label>
+                                <label><input type="checkbox">英语</label>
+                                <label><input type="checkbox">物理</label>
+                                <label><input type="checkbox">化学</label>
+                                <label><input type="checkbox">政治</label>
+                                <label><input type="checkbox">历史</label>
+                                <label><input type="checkbox">生物</label>
+                                <label><input type="checkbox">地理</label>
+                                <label><input type="checkbox">其他</label>
+                            </div>
+                        </li>
+                        <li>
+                            <span>艺术类</span>
+                            <div>
+                                <label><input type="checkbox">舞蹈</label>
+                                <label><input type="checkbox">乐器</label>
+                                <label><input type="checkbox">表演</label>
+                                <label><input type="checkbox">声乐</label>
+                                <label><input type="checkbox">书法</label>
+                                <label><input type="checkbox">绘画</label>
+                                <label><input type="checkbox">播音主持</label>
+                                <label><input type="checkbox">其他</label>
+                            </div>
+                        </li>
+                        <li>
+                            <span>体育类</span>
+                            <div>
+                                <label><input type="checkbox">武术类</label>
+                                <label><input type="checkbox">水上运动</label>
+                                <label><input type="checkbox">冰上运动</label>
+                                <label><input type="checkbox">棋类</label>
+                                <label><input type="checkbox">球类</label>
+                                <label><input type="checkbox">田径类</label>
+                                <label><input type="checkbox">拓展训练</label>
+                                <label><input type="checkbox">其他</label>
+                            </div>
+                        </li>
+                        <li>
+                            <span>科技类</span>
+                            <div>
+                                <label><input type="checkbox">科技类</label>
+                            </div>
+                        </li>
+                        <li>
+                            <span>技能类</span>
+                            <div>
+                                <label><input type="checkbox">技能类</label>
+                            </div>
+                        </li>
+                        <li>
+                            <span>托管服务</span>
+                            <div>
+                                <label><input type="checkbox">托管服务</label>
+                                <label><input type="checkbox">托管服务期间补习</label>
+                            </div>
+                        </li>
+                        <li>
+                            <span>其他类</span>
+                            <div>
+                                <label><input type="checkbox">其他类</label>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="hint"><em>请选择参加时间</em></p>
+                    <ul>
+                        <li>
+                            <div>
+                                <label><input type="checkbox">学期期间</label>
+                                <label><input type="checkbox">寒暑假期间</label>
+                                <label><input type="checkbox">长年</label>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="hint"><em>请选择培训班级层次</em></p>
+                    <ul>
+                        <li>
+                            <div>
+                                <label><input type="checkbox">提高班（平时为学习提高的班次）</label> <br>
+                                <label><input type="checkbox">补习班（补课为目的班次）</label> <br>
+                                <label><input type="checkbox">考试辅导班（考试辅导为目的班次）</label>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="hint"><em>请填写次数和费用信息</em></p>
+                    <div class="mouted">
+                        <p>
+                            <label>
+                                <span class="fl">培训机构名称</span>
+                                <input type="text">
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <span class="fl">每周参加</span>
+                                <select name="" id="" class="small">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                </select>
+                            </label>
+                            <label>
+                                <span>每次时长</span>
+                                <select name="" id="" class="small">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                </select>
+                                小时
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <span class="fl">每月缴费标准</span>
+                                <input type="text" class="small"> 元
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <span class="fl">年累计时长</span>
+                                <input type="text" class="small"> 小时
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <span class="fl">年累计缴费</span>
+                                <input type="text" class="small"> 元
+                            </label>
+                        </p>
+                        <p>
+                            <input type="button" value="加入培训班列表">
+                            <a href="#">加入培训班列表</a>
+                            <span class="tac">
+                                (11111111111111)
+                            </span>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="wrapper">
+            <div class="title">
+                <div class="h_bg"></div>
+                <div class="h3">已提交培训班列表</div>
+                <div class="h_bg"></div>
+            </div>
+            <div class="inner">
+                <div class="item">
+                    <a href="#">移出列表</a>
+                    <p>学科类：数学（寒暑假、提高班）</p>
+                    <p>陈中数理化 每周参加 <span class="text-yellow">2</span> 次 每次时长 &nbsp;&nbsp;<span
+                            class="text-yellow">1</span> 小时</p>
+                    <p>每月缴费标准 <span class="text-yellow">2000</span> 元</p>
+                    <p>年累计时长 <span class="text-yellow">120</span> 小时 年累计缴费 &nbsp;&nbsp;<span
+                            class="text-yellow">12000</span> 元</p>
+                </div>
+                <div class="h_bg"></div>
+                <div class="item">
+                    <a href="#">移出列表</a>
+                    <p>学科类：数学（寒暑假、提高班）</p>
+                    <p>陈中数理化 每周参加 <span class="text-yellow">2</span> 次 每次时长 &nbsp;&nbsp;<span
+                            class="text-yellow">1</span> 小时</p>
+                    <p>每月缴费标准 <span class="text-yellow">2000</span> 元</p>
+                    <p>年累计时长 <span class="text-yellow">120</span> 小时 年累计缴费 &nbsp;&nbsp;<span
+                            class="text-yellow">12000</span> 元</p>
+                </div>
+            </div>
+        </div>
+        <div class="wrapper">
+            <div class="title">
+                <div class="h_bg"></div>
+                <div class="h3">请填写作业时长信息</div>
+                <div class="h_bg"></div>
+            </div>
+            <div class="inner">
+                <div>
+                    <div class="mouted">
+                        <p class="hint"><em>学校布置的家庭作业</em></p>
+                        <p>
+                            <label>每周累计<input type="text" class="small"> 小时</label>
+                            <label>每年累计<input type="text" class="small"> 小时</label>
+                        </p>
+                        <p class="hint"><em>培训班布置的作业</em></p>
+                        <p>
+                            <label>每周累计<input type="text" class="small"> 小时</label>
+                            <label>每年累计<input type="text" class="small">小时</label>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wrapper">
+            <div class="title">
+                <div class="h_bg"></div>
+                <div class="h3">温馨提示</div>
+                <div class="h_bg"></div>
+            </div>
+            <div class="inner">
+                <p class="text-block">本问卷只能提交一次，请确认无误后提交。</p>
+            </div>
+        </div>
+        <div class="fun">
+            <a href="#" class="add">还有培训班，继续添加</a>
+            <a href="#" class="sucess">没有了，提交答卷</a>
+            <input type="submit" class="sucess" value="没有了，提交答卷">
+        </div>
+    </section>
+    <footer>
+        <p>版权所有：河南省教育厅 地址：郑州市郑东新区正光路11号</p>
+        <p> 邮政编码：450018 豫ICP备0911211号</p>
+        <p>Copyright © 2018 www.haedu.gov.cn All Rights Reserved</p>
+    </footer>
+</div>
+<div class="modal-overlay" id="mask">
+    <div class="modal">
+        <div class="head">
+            提示提示
+        </div>
+        <div class="container">
+
+            爱丽丝的腹肌拉伤阿三分类阿什拉夫
+
+        </div>
+        <div class="message-input">
+            <a href="#" onclick="hideMask()">确 定</a>
+            <a href="#">取 消</a>
+        </div>
+    </div>
+</div>
+</body>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+
+    //网页加载时弹出遮罩层
+    $(function () {
+        //showMask();
+        hideMask()
+    });
+
+    //遮罩层 ，兼容火狐、IE8
+    function showMask() {
+        $("#mask").css("height", $(document).height());
+        $("#mask").css("width", "100%");
+        //宽度如果设置成$(document).width()；的话屏幕大遮罩右边会有留白
+        //$("#mask").css("width",$(document).width());
+        $("#mask").show();
+        //使其遮罩下方内容不可滚动
+        $('body').css("overflow", "hidden");
+    }
+
+    //关闭遮罩层
+    function hideMask() {
+        $("#mask").hide();
+        $('body').css("overflow", "auto");
+        document.body.style.overflow = '';//出现滚动条
+    }
+
+</script>
+</html>

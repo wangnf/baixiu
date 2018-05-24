@@ -1,0 +1,30 @@
+[
+  {
+    "id": "59d632855434e",
+    "title": "错过",
+    "artist": "梁咏琪",
+    "images": ["/uploads/img/1.jpg"],
+    "source": "/uploads/mp3/1.mp3"
+  },
+  {
+    "id": "59d632855434f",
+    "title": "开始懂了",
+    "artist": "孙燕姿",
+    "images": ["/uploads/img/2.jpg"],
+    "source": "/uploads/mp3/2.mp3"
+  },
+  {
+    "id": "59d6328554350",
+    "title": "一生中最爱",
+    "artist": "谭咏麟",
+    "images": ["/uploads/img/3.jpg"],
+    "source": "/uploads/mp3/3.mp3"
+  },
+  {
+    "id": "59d6328554351",
+    "title": "爱在深秋",
+    "artist": "谭咏麟",
+    "images": ["/uploads/img/4.jpg"],
+    "source": "/uploads/mp3/4.mp3"
+  }
+]

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" data-basewidth="760">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="renderer" content="webkit">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="stylesheet" href="css/main.css">
+    <script>
+        (function (win, doc) {
+
+            var timer = null,
+                html = doc.documentElement,
+                baseWidth = html.dataset.basewidth * 1 || 640,
+                metaEl = document.querySelector('meta[name="viewport"]'),
+                event = 'onorientationchange' in win ? 'onorientationchange' : 'resize';
+
+            if (!metaEl) {
+                metaEl = document.createElement('meta');
+                metaEl.setAttribute('name', 'viewport');
+                metaEl.setAttribute('content', 'initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=0');
+                html.firstElementChild.appendChild(metaEl);
+            }
+
+            function layoutCalc() {
+
+                var width = html.getBoundingClientRect().width,
+                    ratio = width / baseWidth * 100,
+                    devicePixelRatio = window.devicePixelRatio,
+                    rem = ratio < 100 ? ratio < 50 ? 50 : ratio : 100;
+
+                if (!/\.\d+/.test(devicePixelRatio.toString())) {
+                    html.dataset.dpr = devicePixelRatio;
+                }
+
+                html.style.fontSize = rem + 'px';
+
+            }
+
+            win.addEventListener(event, function () {
+                clearTimeout(timer);
+                timer = setTimeout(layoutCalc, 300);
+            }, false);
+
+            win.addEventListener('pageShow', function (e) {
+                if (e.persisted) {
+                    clearTimeout(timer);
+                    timer = setTimeout(layoutCalc, 300);
+                }
+            }, false);
+
+            layoutCalc();
+
+        }(window, document));
+    </script>
+</head>
+<body>
+
+<div class="app">
+    <header>
+        <div class="banner">
+            <img src="images/banner.png" alt="">
+        </div>
+        <div class="people">
+            <img src="images/people.png" alt="">
+        </div>
+        <div class="book">
+            <img src="images/book.png" alt="">
+        </div>
+    </header>
+    <section>
+        <div class="wrapper">
+            <div class="title">
+                <div class="h_bg"></div>
+                <div class="h3 text-yellow">恭喜你，答卷完成！</div>
+                <div class="h_bg"></div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>版权所有：河南省教育厅 地址：郑州市郑东新区正光路11号</p>
+        <p> 邮政编码：450018 豫ICP备0911211号</p>
+        <p>Copyright © 2018 www.haedu.gov.cn All Rights Reserved</p>
+    </footer>
+</div>
+</body>
+</html>

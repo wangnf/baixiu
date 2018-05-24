@@ -1,0 +1,183 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-width: 100%;
+  background-color: #0874D5;
+  overflow-x: hidden;
+  font-size: 14px; }
+
+.clearfix {
+  *zoom: 1; }
+
+.clearfix:after,
+.clearfix:before {
+  display: table;
+  line-height: 0;
+  content: ""; }
+
+.clearfix:after {
+  clear: both; }
+
+em,
+i {
+  font-style: normal; }
+
+.con,
+.header {
+  width: 100%;
+  overflow: hidden; }
+
+.header img {
+  display: block;
+  width: 100%;
+  margin: 0 auto; }
+
+input.lage-input {
+  width: 160px; }
+
+input.small-input {
+  width: 100px; }
+
+.btn-yellow {
+  display: block;
+  margin: 20px auto;
+  width: 280px;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  background: #f60;
+  color: #fff;
+  border: 0;
+  padding: 0;
+  font-size: 18px;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer; }
+
+.con .con-in {
+  max-width: 1000px;
+  margin: 0 auto; }
+  .con .con-in .section {
+    padding: 10px 15px;
+    border-radius: 5px;
+    background: #9cc7ee;
+    margin-bottom: 10px; }
+    .con .con-in .section .psw {
+      display: block;
+      margin: 20px auto;
+      width: 260px;
+      background: #fff;
+      height: 40px;
+      padding: 0 10px;
+      border: 0;
+      border-radius: 4px;
+      font-size: 18px; }
+    .con .con-in .section h4 {
+      text-align: center;
+      margin: 0;
+      padding: 5px 0 10px;
+      font-size: 20px;
+      color: #004AB5; }
+    .con .con-in .section > ul {
+      list-style: none;
+      margin: 0;
+      padding: 0; }
+      .con .con-in .section > ul > li {
+        list-style: none;
+        padding: 4px 0; }
+        .con .con-in .section > ul > li em {
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          border-radius: 4px;
+          background-color: #004AB5;
+          color: #fff;
+          margin-right: 5px;
+          text-align: center;
+          line-height: 20px; }
+    .con .con-in .section label {
+      margin-right: 10px;
+      padding: 10px; }
+      .con .con-in .section label span {
+        display: inline-block;
+        width: 104px;
+        text-align: right;
+        padding-right: 10px;
+        vertical-align: middle; }
+      .con .con-in .section label select {
+        width: 160px;
+        height: 32px;
+        line-height: 32px;
+        padding-left: 5px;
+        border-radius: 4px;
+        border: 1px solid #0773D4;
+        vertical-align: middle; }
+      .con .con-in .section label i {
+        color: #777; }
+
+.footer {
+  text-align: center;
+  color: #fff;
+  padding: 30px;
+  overflow: hidden; }
+
+@media screen and (max-width: 760px) {
+  .con .con-in {
+    margin: 0 20px; } }
+.con .con-in .tab > ul {
+  overflow: hidden; }
+
+.con .con-in .tab > ul li {
+  float: left;
+  width: 50%;
+  text-align: center;
+  line-height: 40px;
+  background: #eee;
+  color: #999;
+  text-decoration: none;
+  padding: 0;
+  margin-bottom: 10px; }
+  .con .con-in .tab > ul li.active {
+    color: #0066cc;
+    background: #0066cc; }
+    .con .con-in .tab > ul li.active h4 {
+      color: #fff; }
+  .con .con-in .tab > ul li h4 {
+    color: #999;
+    display: inline; }
+
+.con .con-in .section label input.small-input {
+  width: 60px; }
+
+.check-item {
+  padding: 0 20px;
+  margin: 0; }
+  .check-item li {
+    overflow: hidden;
+    width: auto;
+    height: auto;
+    display: block;
+    font-size: 16px;
+    padding-bottom: 12px;
+    background: url(../images/h_bg.png) repeat-x left bottom; }
+  .check-item span {
+    display: inline-block;
+    font-size: 16px;
+    padding: 4px;
+    margin: 10px 0;
+    background: #0066cc;
+    color: #fff;
+    border-radius: 4px; }
+
+input[type='text'], input[type="date"] {
+  width: 160px;
+  height: 32px;
+  line-height: 32px;
+  padding-left: 5px;
+  border-radius: 4px;
+  border: 1px solid #0773D4;
+  vertical-align: middle; }
+
+/*# sourceMappingURL=school.css.map */
